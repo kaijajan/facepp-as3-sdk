@@ -1,4 +1,4 @@
-faceplusplus.as
+facepp-as3-sdk
 ===============
 
-FACE++ AS3 API
+Face++ SDK For ActionScript3
