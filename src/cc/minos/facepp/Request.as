@@ -48,7 +48,7 @@ package cc.minos.facepp
 			loader.addEventListener( Event.COMPLETE, onComplete );
 			loader.addEventListener( IOErrorEvent.IO_ERROR, onIoError );
 			
-			if ( data.img != undefined && data.img != null )
+			if ( data.img != undefined && data.img is ByteArray )
 			{
 				request = parse_img( data );
 			}

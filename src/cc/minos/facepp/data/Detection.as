@@ -1,6 +1,7 @@
 package cc.minos.facepp.data
 {
 	import cc.minos.facepp.APIMethod;
+	import flash.utils.ByteArray;
 	
 	/**
 	 * ...
@@ -28,7 +29,23 @@ package cc.minos.facepp.data
 		public function detect( img:Object, mode:String = "normal", attribute:String = "none", tag:String = "", async:String = "false" ):FacePPData
 		{
 			_apiMethod = APIMethod.DETECTION_DETECT;
-			//
+			data = {};
+			if ( img is String )
+			{
+				data[ 'url' ] = String( img );
+			}
+			else if ( img is ByteArray )
+			{
+				data[ 'img' ] = img;
+			}
+			else
+			{
+				throw new ArgumentError( 'img必须是图片url或者二进制' );
+			}
+			data[ 'mode' ] = mode;
+			data[ 'attribute' ] = attribute;
+			data[ 'tag' ] = tag;
+			data[ 'async' ] = async;
 			return this;
 		}
 		
@@ -41,7 +58,9 @@ package cc.minos.facepp.data
 		public function landmark( face_id:String, type:String = "83p" ):FacePPData
 		{
 			_apiMethod = APIMethod.DETECTION_LANDMARK;
-			//
+			data = { };
+			data[ 'face_id' ] = face_id;
+			data[ 'type' ] = type;
 			return this;
 		}
 	

@@ -7,6 +7,8 @@ package cc.minos.facepp.data
 	 */
 	public class FacePPData extends Object
 	{
+		private const id_reg:RegExp = /^[0-9a-z]+$/
+		
 		protected var _apiKey:String;
 		protected var _apiSecret:String;
 		protected var _apiMethod:String;
@@ -15,6 +17,11 @@ package cc.minos.facepp.data
 		
 		public function FacePPData()
 		{
+		}
+		
+		public function isID( str:String ):void
+		{
+			return id_reg.test( str );
 		}
 		
 		public function toObject():Object

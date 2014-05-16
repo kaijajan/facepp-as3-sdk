@@ -19,7 +19,7 @@ package cc.minos.facepp
 	 */
 	public class FacePP
 	{
-		//去空格
+		//去斜杠
 		private var trim:RegExp = /^\/+|\/+$/g;
 		
 		//请求服务器地址cn[aliyun]或者us[amazon]
