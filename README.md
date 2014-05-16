@@ -1,6 +1,8 @@
 facepp-as3-sdk
 ===============
 
+![Face++](/image/facepp_inside.png)
+
 Face++ SDK For ActionScript3
 
 Others SDK [Face++](https://github.com/FacePlusPlus)
