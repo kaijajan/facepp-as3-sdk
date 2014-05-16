@@ -25,10 +25,7 @@ package cc.minos.facepp.data
 		{
 			_apiMethod = APIMethod.TRAIN_VERIFY;
 			data = {};
-			if ( isID( person ) )
-				data[ 'person_id' ] = person;
-			else
-				data[ 'person_name' ] = person;
+			addIDorName( 'person', person );
 			return this;
 		}
 		
@@ -44,10 +41,7 @@ package cc.minos.facepp.data
 		{
 			_apiMethod = APIMethod.TRAIN_SEARCH;
 			data = {};
-			if ( isID( faceset ) )
-				data[ 'faceset_id' ] = faceset;
-			else
-				data[ 'faceset_name' ] = faceset;
+			addIDorName( 'faceset', faceset );
 			return this;
 		}
 		
@@ -64,10 +58,7 @@ package cc.minos.facepp.data
 		{
 			_apiMethod = APIMethod.TRAIN_IDENTIFY;
 			data = {};
-			if ( isID( group ) )
-				data[ 'group_id' ] = group;
-			else
-				data[ 'group_name' ] = group;
+			addIDorName( 'group', group );
 			return this;
 		}
 	

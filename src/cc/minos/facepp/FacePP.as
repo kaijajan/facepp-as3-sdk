@@ -1,5 +1,6 @@
 package cc.minos.facepp
 {
+	import cc.minos.facepp.data.FacePPData;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
@@ -107,6 +108,16 @@ package cc.minos.facepp
 						setTimeout( sessionCheck, sessionInterval, res.session_id, callback );
 					}
 				} );
+		}
+		
+		/**
+		 * 使用FacePPData发送请求
+		 * @param	data
+		 * @param	callback
+		 */
+		public function requestByData( data:FacePPData, callback:Function = null ):void
+		{
+			this.request( data.apiMethod, data.toObject(), callback );
 		}
 		
 		/**

@@ -7,10 +7,8 @@ package cc.minos.facepp.data
 	 */
 	public class FacePPData extends Object
 	{
-		private const id_reg:RegExp = /^[0-9a-z]+$/
+		private const id_reg:RegExp = /^[0-9a-z]{25,}$/;
 		
-		protected var _apiKey:String;
-		protected var _apiSecret:String;
 		protected var _apiMethod:String;
 		
 		protected var data:Object = {}
@@ -19,39 +17,29 @@ package cc.minos.facepp.data
 		{
 		}
 		
-		public function isID( str:String ):void
+		protected function isID( str:String ):Boolean
 		{
 			return id_reg.test( str );
 		}
 		
+		protected function addIDorName( prop:String, value:String ):void
+		{
+			if ( value == null )
+				return;
+			if ( isID( value.split( "," )[ 0 ] ) )
+				data[ prop + "_id" ] = value;
+			else
+				data[ prop + "_name" ] = value;
+		}
+		
 		public function toObject():Object
 		{
-			//
+			return data;
 		}
 		
 		public function get apiMethod():String
 		{
 			return _apiMethod;
-		}
-		
-		public function get apiSecret():String
-		{
-			return _apiSecret;
-		}
-		
-		public function set apiSecret( value:String ):void
-		{
-			_apiSecret = value;
-		}
-		
-		public function get apiKey():String
-		{
-			return _apiKey;
-		}
-		
-		public function set apiKey( value:String ):void
-		{
-			_apiKey = value;
 		}
 	
 	}
