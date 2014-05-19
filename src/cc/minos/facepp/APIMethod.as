@@ -135,6 +135,10 @@ package cc.minos.facepp
 		 * 获得人群的备注等信息
 		 */
 		public static const GROUP_GET_INFO:String = "/group/get_info";
+		/**
+		 * 
+		 */
+		public static const GROUP_SET_INFO:String = "/group/set_info";
 		
 		/*** info 信息查询 ***/
 		

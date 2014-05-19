@@ -1,6 +1,3 @@
-facepp-as3-sdk
-===============
-
 ![Face++](/image/facepp_inside.png)
 
 Face++ SDK For ActionScript3

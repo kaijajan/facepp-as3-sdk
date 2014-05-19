@@ -117,7 +117,12 @@ package cc.minos.facepp
 		 */
 		public function requestByData( data:FacePPData, callback:Function = null ):void
 		{
-			this.request( data.apiMethod, data.toObject(), callback );
+			var method:String = data.apiMethod;
+			var obj:Object = data.toObject();
+			if ( obj[ 'async' ] == 'true' )
+				this.requestAsync( method, obj, callback );
+			else
+				this.request( method, obj, callback );
 		}
 		
 		/**
