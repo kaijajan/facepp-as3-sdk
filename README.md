@@ -1,4 +1,4 @@
-![Face++](/image/facepp_inside.png)
+[![Build Status]][Travis CI] 
 
 Face++ SDK For ActionScript3
 
