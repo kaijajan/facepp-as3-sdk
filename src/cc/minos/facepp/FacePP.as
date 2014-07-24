@@ -13,7 +13,7 @@ package cc.minos.facepp
 	import flash.net.URLVariables;
 	import flash.utils.ByteArray;
 	import flash.utils.setTimeout;
-	
+
 	/**
 	 * FacePP SDK
 	 * @author Minos
@@ -21,30 +21,30 @@ package cc.minos.facepp
 	public class FacePP
 	{
 		//去斜杠
-		private var trim:RegExp = /^\/+|\/+$/g;
-		
+		private var trim:RegExp         = /^\/+|\/+$/g;
+
 		//请求服务器地址cn[aliyun]或者us[amazon]
-		private var apiURL:String = "api url";
-		
-		private var apiKey:String = "your api key";
-		private var apiSecret:String = "your api secret";
-		
+		private var apiURL:String       = "api url";
+
+		private var apiKey:String       = "your api key";
+		private var apiSecret:String    = "your api secret";
+
 		//并发
 		private var requestCapacity:int = 2;
 		//异步请求延迟时间
 		private var sessionInterval:int = 500;
 		//超时时间
-		private var requestTimeout:int = 10000;
-		//参数
-		private var options:Object = { //
-				apiURL: 'https://apicn.faceplusplus.com/v2', //
-				sessionInterval: 500, //
-				requestTimeout: 10000, //
-				concurrency: 2 //
-			}
+		private var requestTimeout:int  = 10000;
 		//请求队列
-		private var queue:Array = [];
-		
+		private var queue:Array         = [];
+		//参数
+		private var options:Object 		= { //
+			apiURL: 'https://apicn.faceplusplus.com/v2', //
+			sessionInterval: 500, //
+			requestTimeout: 10000, //
+			concurrency: 2 //
+			}
+
 		/**
 		 *
 		 * @param	apiKey
@@ -63,13 +63,13 @@ package cc.minos.facepp
 						this.options[ o ] = options[ o ];
 				}
 			}
-			
+
 			this.requestCapacity = this.options[ 'concurrency' ];
 			this.apiURL = String( this.options[ 'apiURL' ] ).replace( trim, '' );
 			this.requestTimeout = this.options[ 'requestTimeout' ];
 			this.sessionInterval = this.options[ 'sessionInterval' ];
 		}
-		
+
 		/**
 		 * 发送请求
 		 * @param	apiMethod		:	方法
@@ -85,7 +85,7 @@ package cc.minos.facepp
 			queue.push([ this.apiURL + apiMethod, data, callback ] );
 			scheduleRequest();
 		}
-		
+
 		/**
 		 * 发送异步请求
 		 * @param	apiMethod		:	方法
@@ -109,7 +109,7 @@ package cc.minos.facepp
 					}
 				} );
 		}
-		
+
 		/**
 		 * 使用FacePPData发送请求
 		 * @param	data
@@ -124,7 +124,7 @@ package cc.minos.facepp
 			else
 				this.request( method, obj, callback );
 		}
-		
+
 		/**
 		 *
 		 * @param	session_id		:	请求id
@@ -152,7 +152,7 @@ package cc.minos.facepp
 					}
 				} );
 		}
-		
+
 		/**
 		 *
 		 */
@@ -171,7 +171,7 @@ package cc.minos.facepp
 					} );
 			}
 		}
-	
+
 	}
 
 }
